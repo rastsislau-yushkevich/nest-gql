@@ -1,0 +1,17 @@
+version: '1.0'
+services:
+  dev-db: 
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: pcs_db
+  pgadmin: 
+    image: dpage/pgadmin4
+    ports:
+      - 5050:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=rostyushko@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=root

@@ -1,0 +1,46 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Mutation {
+  addPc: PC!
+}
+
+type PC {
+  """PC case"""
+  case: String!
+
+  """CPU"""
+  cpu: String!
+
+  """CPU Cooler"""
+  cpuCooler: String!
+
+  """GPU"""
+  gpu: String
+
+  """Hard drive disk"""
+  hdd: String
+
+  """PC ID"""
+  id: Int!
+
+  """Motherboard"""
+  motherboard: String!
+
+  """Optical drive"""
+  opticalDrive: String
+
+  """Power Unit"""
+  powerUnit: String!
+
+  """RAM"""
+  ram: String!
+
+  """Solid state drive"""
+  ssd: String
+}
+
+type Query {
+  getAllPcs: [PC!]!
+}

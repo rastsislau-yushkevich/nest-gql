@@ -42,7 +42,7 @@ export class Cpu {
   @Column()
   tdp: number;
 
-  @OneToMany((type) => PC, (pc) => pc.cpu, { cascade: true })
+  @OneToMany((type) => PC, (pc) => pc.cpu, { cascade: true, nullable: true })
   @Field((type) => [PC], { description: 'CPU TDP', nullable: true })
   pcs?: PC[];
 }

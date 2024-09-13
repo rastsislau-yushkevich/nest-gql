@@ -28,6 +28,38 @@ input AddCpuInput {
   threads: Int!
 }
 
+input AddPcInput {
+  """PC case"""
+  case: String!
+
+  """CPU Cooler"""
+  cpuCooler: String!
+
+  """CPU"""
+  cpuId: String!
+
+  """GPU"""
+  gpu: String
+
+  """Hard drive disk"""
+  hdd: String
+
+  """Motherboard"""
+  motherboard: String!
+
+  """Optical drive"""
+  opticalDrive: String
+
+  """Power Unit"""
+  powerUnit: String!
+
+  """RAM"""
+  ram: String!
+
+  """Solid state drive"""
+  ssd: String
+}
+
 type Cpu {
   """CPU Threads amount"""
   cores: Int!
@@ -62,7 +94,7 @@ type Cpu {
 
 type Mutation {
   addCpu(addCpuData: AddCpuInput!): Cpu!
-  addPc: PC!
+  addPc(addPcData: AddPcInput!): PC!
 }
 
 type PC {
@@ -74,6 +106,9 @@ type PC {
 
   """CPU Cooler"""
   cpuCooler: String!
+
+  """CPU ID"""
+  cpuId: ID!
 
   """GPU"""
   gpu: String

@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 import { PC } from './entities/pc.entity';
+import { AddPcInput } from './inputs/pc.inputs';
 
 @Injectable()
 export class PcsService {
@@ -11,8 +12,8 @@ export class PcsService {
     private pcsRepository: Repository<PC>,
   ) {}
 
-  add(pc: PC) {
-    return this.pcsRepository.save(pc);
+  async add(addPcData: AddPcInput) {
+    return this.pcsRepository.save(addPcData);
   }
 
   async findAll() {

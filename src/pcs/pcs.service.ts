@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { PC } from './entities/pc.entity';
 import { Repository } from 'typeorm';
+
+import { PC } from './entities/pc.entity';
 
 @Injectable()
 export class PcsService {

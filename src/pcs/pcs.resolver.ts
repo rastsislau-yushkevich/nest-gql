@@ -1,6 +1,7 @@
 import { Mutation, Query, Resolver } from '@nestjs/graphql';
-import { PC } from './models/pc.model';
+
 import { PcsService } from './pcs.service';
+import { PC } from './entities/pc.entity';
 
 @Resolver((of) => PC)
 export class PcsResolver {

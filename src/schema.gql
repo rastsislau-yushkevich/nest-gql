@@ -29,33 +29,35 @@ input AddCpuInput {
 }
 
 type Cpu {
-  """CPU Cores amount"""
+  """CPU Threads amount"""
   cores: Int!
 
   """CPU frequency"""
   frequency: String!
 
-  """CPU ID"""
-  id: ID!
-
   """CPU Manufacturer"""
-  manufacturer: String!
-
-  """CPU Model"""
-  model: String!
-  pcs: [PC!]
-
-  """CPU Release Date"""
-  releaseYear: Int!
+  id: String!
 
   """CPU Series"""
+  manufacturer: String!
+
+  """CPU Release Date"""
+  model: Int!
+
+  """CPU TDP"""
+  pcs: [PC!]
+
+  """CPU Cores amount"""
+  releaseYear: Int!
+
+  """CPU Model"""
   series: String!
 
   """CPU TDP"""
   tdp: Int!
 
-  """CPU Threads amount"""
-  threads: Int!
+  """CPU frequency"""
+  threads: Float!
 }
 
 type Mutation {

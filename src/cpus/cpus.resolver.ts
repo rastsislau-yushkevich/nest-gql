@@ -1,7 +1,8 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { Cpu } from './models/cpu.model';
+
 import { AddCpuInput } from './inputs/cpu.inputs';
 import { CpusService } from './cpus.service';
+import { Cpu } from './entities/cpu.entity';
 
 @Resolver()
 export class CpusResolver {

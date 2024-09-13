@@ -1,12 +1,13 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { Cpu } from 'src/cpus/models/cpu.model';
 
 @ObjectType()
 export class PC {
-  @Field((type) => Int, { description: 'PC ID' })
-  id: number;
+  @Field((type) => ID, { description: 'PC ID' })
+  id: string;
 
-  @Field({ description: 'CPU' })
-  cpu: string;
+  @Field((type) => Cpu, { description: 'CPU' })
+  cpu: Cpu;
 
   @Field({ description: 'CPU Cooler' })
   cpuCooler: string;

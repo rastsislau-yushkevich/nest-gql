@@ -2,7 +2,64 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input AddCpuInput {
+  """CPU Cores amount"""
+  cores: Int!
+
+  """CPU frequency"""
+  frequency: String!
+
+  """CPU Manufacturer"""
+  manufacturer: String!
+
+  """CPU Model"""
+  model: String!
+
+  """CPU Release Date"""
+  releaseYear: Int!
+
+  """CPU Series"""
+  series: String!
+
+  """CPU TDP"""
+  tdp: Int!
+
+  """CPU Threads amount"""
+  threads: Int!
+}
+
+type Cpu {
+  """CPU Cores amount"""
+  cores: Int!
+
+  """CPU frequency"""
+  frequency: String!
+
+  """CPU ID"""
+  id: ID!
+
+  """CPU Manufacturer"""
+  manufacturer: String!
+
+  """CPU Model"""
+  model: String!
+  pcs: [PC!]
+
+  """CPU Release Date"""
+  releaseYear: Int!
+
+  """CPU Series"""
+  series: String!
+
+  """CPU TDP"""
+  tdp: Int!
+
+  """CPU Threads amount"""
+  threads: Int!
+}
+
 type Mutation {
+  addCpu(addCpuData: AddCpuInput!): Cpu!
   addPc: PC!
 }
 
@@ -11,7 +68,7 @@ type PC {
   case: String!
 
   """CPU"""
-  cpu: String!
+  cpu: Cpu!
 
   """CPU Cooler"""
   cpuCooler: String!
@@ -23,7 +80,7 @@ type PC {
   hdd: String
 
   """PC ID"""
-  id: Int!
+  id: ID!
 
   """Motherboard"""
   motherboard: String!
@@ -42,5 +99,6 @@ type PC {
 }
 
 type Query {
+  getAllCpus: [Cpu!]!
   getAllPcs: [PC!]!
 }

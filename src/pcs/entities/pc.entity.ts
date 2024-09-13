@@ -1,12 +1,14 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+
+import { Cpu } from 'src/cpus/entities/cpu.entity';
 
 @Entity()
 export class PC {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-  @Column()
-  cpu: string;
+  @ManyToOne((type) => Cpu, (cpu) => cpu.pcs)
+  cpu: Cpu;
 
   @Column()
   cpuCooler: string;

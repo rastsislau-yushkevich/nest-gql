@@ -4,10 +4,12 @@ import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
-
 import { TypeOrmModule } from '@nestjs/typeorm';
+
 import { PcsModule } from './pcs/pcs.module';
 import { PC } from './pcs/entities/pc.entity';
+import { Cpu } from './cpus/entities/cpu.entity';
+import { CpusModule } from './cpus/cpus.module';
 
 @Module({
   imports: [
@@ -23,10 +25,11 @@ import { PC } from './pcs/entities/pc.entity';
       username: 'root',
       password: 'root',
       database: 'pcs_db',
-      entities: [PC],
+      entities: [PC, Cpu],
       synchronize: true,
     }),
     PcsModule,
+    CpusModule,
   ],
   controllers: [AppController],
   providers: [AppService],

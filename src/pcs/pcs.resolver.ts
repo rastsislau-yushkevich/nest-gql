@@ -13,16 +13,15 @@ export class PcsResolver {
 
   @Mutation((returns) => PC)
   async addPc() {
-    const pc = new PC();
-    pc.cpu = 'AMD Ryzen 5 5600';
-    pc.cpuCooler = 'DeepCool';
-    pc.ram = 'HyperX Fury';
-    pc.motherboard = 'AsRock Pg Riptide B550M';
-    pc.gpu = 'MSI Geforce GTX 1060 3gb';
-    pc.powerUnit = 'beQuiet System Power 600W';
-    pc.ssd = 'Kingston A200';
-    pc.case = 'DeepCool';
-
-    return this.pcsService.add(pc);
+    // const pc = new PC();
+    // pc.cpu = 'AMD Ryzen 5 5600';
+    // pc.cpuCooler = 'DeepCool';
+    // pc.ram = 'HyperX Fury';
+    // pc.motherboard = 'AsRock Pg Riptide B550M';
+    // pc.gpu = 'MSI Geforce GTX 1060 3gb';
+    // pc.powerUnit = 'beQuiet System Power 600W';
+    // pc.ssd = 'Kingston A200';
+    // pc.case = 'DeepCool';
+    // return this.pcsService.add(pc);
   }
 }

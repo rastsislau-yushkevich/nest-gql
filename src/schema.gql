@@ -2,6 +2,35 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input AddCpuCoolerInput {
+  """Brand of the CPU cooler"""
+  brand: String!
+
+  """Fan diameter for the cooler"""
+  fanSize: Int!
+
+  """Fan speed"""
+  fanSpeed: Int!
+
+  """Cooler height"""
+  height: Int!
+
+  """Model of the CPU cooler"""
+  model: String!
+
+  """Noise level"""
+  noiseLevel: Int!
+
+  """Motherboard socket type"""
+  sockets: [Socket!]!
+
+  """Amount of head dissipated"""
+  tdp: Int!
+
+  """Water or air cooler"""
+  type: Type!
+}
+
 input AddCpuInput {
   """CPU Cores amount"""
   cores: Int!
@@ -32,8 +61,8 @@ input AddPcInput {
   """PC case"""
   case: String!
 
-  """CPU Cooler"""
-  cpuCooler: String!
+  """CPU cooler"""
+  cpuCoolerId: String!
 
   """CPU"""
   cpuId: String!
@@ -76,7 +105,7 @@ type Cpu {
   """CPU Release Date"""
   model: Int!
 
-  """CPU TDP"""
+  """PCs the CPU is associated with"""
   pcs: [PC!]
 
   """CPU Cores amount"""
@@ -92,8 +121,44 @@ type Cpu {
   threads: Float!
 }
 
+type CpuCooler {
+  """Brand of the CPU cooler"""
+  brand: String!
+
+  """Fan diameter for the cooler"""
+  fanSize: Int!
+
+  """Fan speed"""
+  fanSpeed: Int!
+
+  """Cooler height"""
+  height: Int!
+
+  """CPU Cooler ID"""
+  id: ID!
+
+  """Model of the CPU cooler"""
+  model: String!
+
+  """Noise level"""
+  noiseLevel: Int!
+
+  """PCs the CPU Cooler is associated with"""
+  pcs: [PC!]
+
+  """Motherboard socket type"""
+  sockets: [Socket!]!
+
+  """Amount of head dissipated"""
+  tdp: Int!
+
+  """Water or air cooler"""
+  type: Type!
+}
+
 type Mutation {
   addCpu(addCpuData: AddCpuInput!): Cpu!
+  addCpuCooler(addCpuCoolerInput: AddCpuCoolerInput!): CpuCooler!
   addPc(addPcData: AddPcInput!): PC!
 }
 
@@ -105,7 +170,10 @@ type PC {
   cpu: Cpu!
 
   """CPU Cooler"""
-  cpuCooler: String!
+  cpuCooler: CpuCooler!
+
+  """CPU cooler ID"""
+  cpuCoolerId: ID!
 
   """CPU ID"""
   cpuId: ID!
@@ -136,6 +204,22 @@ type PC {
 }
 
 type Query {
+  getAllCpuCoolers: [CpuCooler!]!
   getAllCpus: [Cpu!]!
   getAllPcs: [PC!]!
+}
+
+"""Sockets cooler is compatible with"""
+enum Socket {
+  AM4
+  AM5
+  LGA1200
+  LGA1700
+  LGA1851
+}
+
+"""Water or air cooler"""
+enum Type {
+  Air
+  Water
 }

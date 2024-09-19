@@ -1,13 +1,12 @@
-import { Field, ID, InputType } from '@nestjs/graphql';
-import { Cpu } from 'src/cpus/entities/cpu.entity';
+import { Field, InputType } from '@nestjs/graphql';
 
 @InputType()
 export class AddPcInput {
   @Field({ description: 'CPU' })
   cpuId: string;
 
-  @Field({ description: 'CPU Cooler' })
-  cpuCooler: string;
+  @Field({ description: 'CPU cooler' })
+  cpuCoolerId: string;
 
   @Field({ description: 'RAM' })
   ram: string;

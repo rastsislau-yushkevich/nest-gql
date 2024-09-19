@@ -1,7 +1,8 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 import { Cpu } from 'src/cpus/entities/cpu.entity';
-import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { CpuCooler } from 'src/cpu-coolers/entities/cpu-cooler.entity';
 
 @ObjectType()
 @Entity()
@@ -18,9 +19,13 @@ export class PC {
   @Column()
   cpuId: string;
 
-  @Field({ description: 'CPU Cooler' })
+  @Field((type) => CpuCooler, { description: 'CPU Cooler' })
+  @ManyToOne((type) => CpuCooler, (cpuCooler) => cpuCooler.pcs)
+  cpuCooler: CpuCooler;
+
+  @Field((type) => ID, { description: 'CPU cooler ID' })
   @Column()
-  cpuCooler: string;
+  cpuCoolerId: string;
 
   @Field({ description: 'RAM' })
   @Column()

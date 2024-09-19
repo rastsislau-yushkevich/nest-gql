@@ -10,6 +10,8 @@ import { PcsModule } from './pcs/pcs.module';
 import { PC } from './pcs/entities/pc.entity';
 import { Cpu } from './cpus/entities/cpu.entity';
 import { CpusModule } from './cpus/cpus.module';
+import { CpuCoolersModule } from './cpu-coolers/cpu-coolers.module';
+import { CpuCooler } from './cpu-coolers/entities/cpu-cooler.entity';
 
 @Module({
   imports: [
@@ -25,11 +27,12 @@ import { CpusModule } from './cpus/cpus.module';
       username: 'root',
       password: 'root',
       database: 'pcs_db',
-      entities: [PC, Cpu],
+      entities: [PC, Cpu, CpuCooler],
       synchronize: true,
     }),
     PcsModule,
     CpusModule,
+    CpuCoolersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
